@@ -154,10 +154,8 @@ class MainWindow(QMainWindow):
         self.speed = 0.1
         self.total_page = 1
         self.region = {}
-        # self.label1_1.setText('(0, 0)')
-        # self.label2_1.setText('(0, 0)')
-        self.label1_1.setText('(196, 61)')
-        self.label2_1.setText('(1744, 1358)')
+        self.label1_1.setText('(0, 0)')
+        self.label2_1.setText('(0, 0)')
         self.input1.clear()
         self.input2.clear()
         self.stat.clear()
@@ -275,10 +273,11 @@ class MainWindow(QMainWindow):
             if pdf_name == '':
                 pdf_name = 'default'
 
-            cvt_rgb_0.save(pdf_name+'.pdf', save_all=True, append_images=img_list)
+            # Convert Image 시 PDF 화질을 최대한 높이는 옵션 사용, 대신에 결과 파일 사이즈가 커질 수 있으니
+            cvt_rgb_0.save(pdf_name+'.pdf', quality=100, optimize=True, resolution=100.0, save_all=True, append_images=img_list)
             print("PDF 변환 완료!")
             self.stat.setText('PDF 변환 완료!')
-            # shutil.rmtree('pdf_images/')
+            shutil.rmtree('pdf_images/')
 
         except Exception as e:
             print('예외 발생. ', e)
