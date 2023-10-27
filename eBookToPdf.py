@@ -154,8 +154,10 @@ class MainWindow(QMainWindow):
         self.speed = 0.1
         self.total_page = 1
         self.region = {}
-        self.label1_1.setText('(0, 0)')
-        self.label2_1.setText('(0, 0)')
+        # self.label1_1.setText('(0, 0)')
+        # self.label2_1.setText('(0, 0)')
+        self.label1_1.setText('(196, 61)')
+        self.label2_1.setText('(1744, 1358)')
         self.input1.clear()
         self.input2.clear()
         self.stat.clear()
@@ -276,7 +278,7 @@ class MainWindow(QMainWindow):
             cvt_rgb_0.save(pdf_name+'.pdf', save_all=True, append_images=img_list)
             print("PDF 변환 완료!")
             self.stat.setText('PDF 변환 완료!')
-            shutil.rmtree('pdf_images/')
+            # shutil.rmtree('pdf_images/')
 
         except Exception as e:
             print('예외 발생. ', e)
